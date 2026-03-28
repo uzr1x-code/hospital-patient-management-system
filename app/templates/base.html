@@ -1,0 +1,55 @@
+<!-- template made by haris -->
+<!-- uzair is the goat! -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TMUC Hospital System</title>
+
+    <!-- cache-busted CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}?v=3">
+</head>
+
+<body>
+
+    <!-- BACKGROUND -->
+    <div class="background"></div>
+
+    <!-- MAIN CONTAINER -->
+    <div class="container glass">
+
+        <!-- HEADER -->
+        <div class="header">
+            <img src="{{ url_for('static', filename='tmuc.png') }}" class="logo">
+
+            <h1>
+                <span class="brand-main">TMUC</span>
+                <span class="brand-sub">Hospital Management System</span>
+            </h1>
+        </div>
+
+        <!-- NAV (hidden on landing page) -->
+        {% if request.path != '/' %}
+        <nav>
+            <a href="{{ url_for('main.view_patients') }}">Patients</a>
+            <a href="{{ url_for('main.view_doctors') }}">Doctors</a>
+            <a href="{{ url_for('main.view_appointments') }}">Appointments</a>
+            <a href="{{ url_for('auth.logout') }}">Logout</a>
+        </nav>
+        {% endif %}
+
+        <hr>
+
+        <!-- PAGE CONTENT -->
+        {% block content %}{% endblock %}
+
+<p class="credits">
+    Backend by Uzair • UI by Haris
+</p>
+
+    </div>
+
+</body>
+</html>

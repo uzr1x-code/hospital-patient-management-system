@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Appointments</h2>
+
+<a href="{{ url_for('main.add_appointment') }}" class="btn">Add Appointment</a>
+
+{% if appointments %}
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Patient ID</th>
+            <th>Doctor ID</th>
+            <th>Appointment Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for appointment in appointments %}
+        <tr>
+            <td>{{ appointment.id }}</td>
+            <td>{{ appointment.patient_id }}</td>
+            <td>{{ appointment.doctor_id }}</td>
+            <td>{{ appointment.appointment_date }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% else %}
+<p>No appointments found.</p>
+{% endif %}
+
+{% endblock %}

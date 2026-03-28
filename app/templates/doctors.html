@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Doctors</h2>
+
+<a href="{{ url_for('main.add_doctor') }}" class="btn">Add Doctor</a>
+
+{% if doctors %}
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Specialty</th>
+            <th>Phone</th>
+            <th>Email</th>
+            <th>Address</th>
+            <th>Office Hours</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for doctor in doctors %}
+        <tr>
+            <td>{{ doctor.id }}</td>
+            <td>Dr. {{ doctor.first_name }} {{ doctor.last_name }}</td>
+            <td>{{ doctor.specialty }}</td>
+            <td>{{ doctor.phone }}</td>
+            <td>{{ doctor.email }}</td>
+            <td>{{ doctor.address }}</td>
+            <td>{{ doctor.office_hours }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% else %}
+<p>No doctors found.</p>
+{% endif %}
+{% endblock %}

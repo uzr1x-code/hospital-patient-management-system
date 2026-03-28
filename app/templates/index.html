@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Welcome, {{ current_user.username }}</h2>
+
+<div class="dashboard-links">
+    <a href="{{ url_for('main.view_patients') }}" class="btn">Patients</a>
+    <a href="{{ url_for('main.view_doctors') }}" class="btn">Doctors</a>
+    <a href="{{ url_for('main.view_appointments') }}" class="btn">Appointments</a>
+</div>
+{% endblock %}

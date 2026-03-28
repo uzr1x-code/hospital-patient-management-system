@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="landing">
+
+    <h2>Welcome to</h2>
+    <h1 class="landing-title">
+        <span class="brand-main">TMUC</span>
+        <span class="brand-sub">Hospital Management System</span>
+    </h1>
+
+    <p class="landing-desc">
+        Manage patients, doctors, and appointments efficiently.
+    </p>
+
+    <div class="landing-buttons">
+        <a href="{{ url_for('auth.login') }}" class="btn">Login</a>
+        <a href="{{ url_for('auth.register') }}" class="btn secondary">Register</a>
+    </div>
+
+</div>
+{% endblock %}
